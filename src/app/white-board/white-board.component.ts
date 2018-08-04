@@ -35,7 +35,7 @@ export class WhiteBoardComponent implements OnInit {
   selectTopic(topic) {
     this.selectedTopic = topic;
   }
-  
+
   selectWidget(widget) {
     this.selectedWidget = widget;
   }
