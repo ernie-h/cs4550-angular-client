@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-const COURSE_API_URL = 'http://localhost:8080/api/course'
-const COURSE_ID_API_URL = 'http://localhost:8080/api/course/CID'
+const LOGIN_URL = 'http://localhost:3000/api/login'
+const REGISTER_URL = 'http://localhost:3000/api/register'
 const COURSE_MODULE_API_URL = 'http://localhost:8080/api/course/CID/module'
 
 @Injectable()
@@ -11,7 +11,18 @@ export class UserServiceClient {
   ];
 
   login = (user) =>
-    fetch('http://localhost:3000/api/login', {
+    fetch(LOGIN_URL, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(response => response.status)
+
+  register = (user) =>
+    fetch(REGISTER_URL, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -25,7 +36,7 @@ export class UserServiceClient {
     fetch('http://localhost:3000/currentUser', {
       credentials: 'include'
     }).then(response => response.json())
-    
+
   //
   // findUserById(userId: String) {
   //   for (let i = 0; i < this.users.length; i++) {
