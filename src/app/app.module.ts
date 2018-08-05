@@ -14,6 +14,7 @@ import { SectionComponent } from './section/section.component';
 import { SectionServiceClient } from './services/section.service.client';
 import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
     ProfileComponent,
     SectionComponent,
     EnrollmentComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
