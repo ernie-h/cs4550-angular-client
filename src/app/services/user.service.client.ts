@@ -25,6 +25,7 @@ export class UserServiceClient {
     fetch('http://localhost:3000/currentUser', {
       credentials: 'include'
     }).then(response => response.json())
+    
   //
   // findUserById(userId: String) {
   //   for (let i = 0; i < this.users.length; i++) {

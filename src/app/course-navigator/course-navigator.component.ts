@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CourseServiceClient } from '../services/course.service.client'
 
 @Component({
-  selector: 'app-white-board',
-  templateUrl: './white-board.component.html',
-  styleUrls: ['./white-board.component.css']
+  selector: 'app-course-navigator',
+  templateUrl: './course-navigator.component.html',
+  styleUrls: ['./course-navigator.component.css']
 })
-export class WhiteBoardComponent implements OnInit {
+export class CourseNavigatorComponent implements OnInit {
   courses = [];
   selectedCourse = {};
   selectedModule = {};
