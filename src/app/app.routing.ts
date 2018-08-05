@@ -4,11 +4,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { SectionComponent } from './section/section.component';
 import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
+import { EnrollmentComponent } from './enrollment/enrollment.component';
+
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'courses', component: CourseNavigatorComponent },
   { path: 'sections', component: SectionComponent },
+  { path: 'enrollment', component: EnrollmentComponent },
 ];
 export const routing = RouterModule.forRoot(appRoutes);
