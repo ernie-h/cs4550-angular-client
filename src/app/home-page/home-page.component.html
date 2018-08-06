@@ -1,13 +1,44 @@
-<div class="row mt-5">
-  <div class="col-5">
-
-<div class="jumbotron">
-  <h1 class="display-3"><strong>Welcome!</strong></h1>
-  <p class="lead">Whiteboard has a lot of courses. Check it out!</p>
+<!-- <div class="row mt-5"> -->
+<div class="jumbotron container">
+  <em class="display-3">Where students thrive.</em>
+  <p class="lead">Welcome to Whiteboard! If you don't already have an account please register here for a new one. Happy hacking!</p>
   <hr class="my-10">
+
+  <p> Already have an account? </p>
+  <a class="btn btn-lg btn-success" routerLink="/login" role="button">Log in here</a>
 </div>
+
+<div class=" row ml-5 mb-5">
+  <div class='col'>
+      &nbsp;
+  </div>
+  <div class='col-11'>
+    <h2 class='display-4 ml-3'>Course Grid ({{courses.length}})</h2>
+    <div class=" d-flex justify-content-start">
+      <div *ngFor="let course of courses" class="col-sm-3">
+        <ul class='list-group'>
+          <li class='list-group-item'>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{course.title}}</h5>
+                <p class="card-text">{{course.created}}</p>
+                <a routerLink="/section" class="btn btn-success">Enroll</a>
+                <a routerLink="/courses" class="btn btn-primary float-right">View more...</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class='col'>
+      &nbsp;
+  </div>
 </div>
-<div class='col-5 mt-5'>
+
+
+<!-- <div class='col-5 mt-5'>
   <ul class="list-group">
     <li class="list-group-item bg-dark text-light">
       Courses
@@ -20,6 +51,6 @@
     </li>
   </ul>
   <button class='btn btn-primary float-right mt-3' routerLink="/courses">View more... </button>
-</div>
+</div> -->
 
-</div>
+<!-- </div> -->
