@@ -8,10 +8,7 @@
       <li class="list-group-item bg-dark text-light">
         Courses
       </li>
-      <li (click)="selectCourse(course)"
-          *ngFor="let course of courses"
-          [ngClass]="{'active': course.id == selectedCourse.id}"
-          class="list-group-item">
+      <li (click)="selectCourse(course)" *ngFor="let course of courses" [ngClass]="{'active': course.id == selectedCourse.id}" class="list-group-item">
         {{course.title}} ({{course.id}})
       </li>
     </ul>
@@ -21,15 +18,27 @@
     <ul class="list-group">
       <li class="list-group-item active">
         Sections
-        <button (click)="addSection(section)"
-                class="btn btn-success btn-sm float-right">Add</button>
       </li>
       <li class="list-group-item">
-        <input [(ngModel)]="section.title"
-               class="form-control">
+        <div class='row'>
+          <div class='col-3'>
+            <label>Section Title
+        <input [(ngModel)]="section.title" class="form-control" value='{{selectedCourse.title}}-Section ' >
+      </label>
+          </div>
+          <div class='col-7'>
+            <label>Section seats
+        <input [(ngModel)]="section.seats" class="form-control" type='number' placeHolder='24'>
+      </label>
+          </div>
+          <div class='col'>
+            <button (click)="addSection(section)" class="btn btn-success mt-4 float-right">Add</button>
+          </div>
+        </div>
       </li>
       <li *ngFor="let section of sections" class="list-group-item">
-        {{section.title}}
+        <b>Section: </b>{{section.title}} <br />
+        <b>Seats: </b>{{section.seats}}
         <button class='btn btn-danger float-right' (click)='deleteSection(section._id)'>Delete</button>
       </li>
     </ul>

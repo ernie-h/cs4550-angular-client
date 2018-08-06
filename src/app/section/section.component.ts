@@ -28,13 +28,17 @@ export class SectionComponent implements OnInit {
 
   addSection = section => {
     section.courseId = this.selectedCourse.id;
-    this.sectionService
-      .createSection(section)
+    if(section.courseId && section.title && section.seats !== undefined){
+      this.sectionService.createSection(section)
       .then(() => {
         return this.sectionService
           .findSectionsForCourse(this.selectedCourse.id);
       })
       .then(sections => this.sections = sections);
+    }
+    else{
+      alert('Please fill in all fields')
+    }
   }
 
   deleteSection = (sectionId) => {
