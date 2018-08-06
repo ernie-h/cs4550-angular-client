@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CourseServiceClient} from '../services/course.service.client';
-import {SectionServiceClient} from "../services/section.service.client";
+import { CourseServiceClient } from '../services/course.service.client';
+import { SectionServiceClient } from "../services/section.service.client";
 
 @Component({
   selector: 'app-section',
@@ -17,7 +17,7 @@ export class SectionComponent implements OnInit {
   section = {}
 
   constructor(private sectionService: SectionServiceClient,
-              private courseService: CourseServiceClient) { }
+    private courseService: CourseServiceClient) { }
 
   selectCourse = course => {
     this.selectedCourse = course;
@@ -36,6 +36,20 @@ export class SectionComponent implements OnInit {
       })
       .then(sections => this.sections = sections);
   }
+
+  deleteSection = (sectionId) => {
+    this.sectionService.deleteSection(sectionId)
+      .then((status) => {
+        if (status === 200) {
+          return this.sectionService.findSectionsForCourse(this.selectedCourse.id)
+            .then((sections) => this.sections = sections)
+        }
+        else {
+          alert('Unable to delete')
+        }
+      })
+  }
+
 
   ngOnInit() {
     this.courseService.findAllCourses()
