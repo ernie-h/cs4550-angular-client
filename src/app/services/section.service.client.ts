@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 
 const COURSE_API_URL = "http://localhost:3000/api/course";
-const SECTION_ID_API_URL = "http://localhost:3000/api/section/SID";
 const COURSE_ID_SECTION_API_URL = "http://localhost:3000/api/course/CID/section";
+const SECTION_ID_API_URL = "http://localhost:3000/api/section/KID";
+const STUDENT_SECTION_ID_API_URL = "http://localhost:3000/api/student/SID/section/KID";
 @Injectable()
 export class SectionServiceClient {
 
-  enroll = sectionId =>
-    fetch('http://localhost:3000/api/section/' + sectionId + '/enroll', {
+  enroll = (userId, sectionId) =>
+    fetch(STUDENT_SECTION_ID_API_URL.replace('SID', userId).replace('KID', sectionId), {
       method: 'PUT',
       credentials: 'include'
     })
+      .then(response => response.status)
 
   findAllSections = () =>
     fetch('http://localhost:3000/api/section')
@@ -32,9 +34,19 @@ export class SectionServiceClient {
       .then(response => response.json())
 
   deleteSection = (sectionId) =>
-    fetch(SECTION_ID_API_URL.replace('SID', sectionId), {
-      method: 'delete'
+    fetch(SECTION_ID_API_URL.replace('KID', sectionId), {
+      method: 'DELETE'
+    })
+      .then(response => response.status)
+
+  updateSectionEnroll = (sectionId) =>
+    fetch(SECTION_ID_API_URL.replace('KID', sectionId), {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      }
     })
     .then(response => response.status)
+
 
 }
