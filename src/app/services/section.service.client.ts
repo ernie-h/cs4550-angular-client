@@ -4,12 +4,15 @@ const COURSE_API_URL = "http://localhost:3000/api/course";
 const COURSE_ID_SECTION_API_URL = "http://localhost:3000/api/course/CID/section";
 const SECTION_ID_API_URL = "http://localhost:3000/api/section/KID";
 const STUDENT_SECTION_ID_API_URL = "http://localhost:3000/api/student/SID/section/KID";
+const STUDENT_SECTION_API_URL = "http://localhost:3000/api/student/SID/section";
+
+
 @Injectable()
 export class SectionServiceClient {
 
   enroll = (userId, sectionId) =>
     fetch(STUDENT_SECTION_ID_API_URL.replace('SID', userId).replace('KID', sectionId), {
-      method: 'PUT',
+      method: 'POST',
       credentials: 'include'
     })
       .then(response => response.status)
@@ -46,7 +49,13 @@ export class SectionServiceClient {
         'content-type': 'application/json'
       }
     })
-    .then(response => response.status)
+      .then(response => response.status)
+
+  findSectionsForStudent = (userId) =>
+    fetch(STUDENT_SECTION_API_URL.replace('SID', userId), {
+      credentials: 'include'
+    })
+      .then(response => response.json());
 
 
 }
