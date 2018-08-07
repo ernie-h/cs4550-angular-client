@@ -11,7 +11,7 @@
       <li *ngFor="let section of sections" class="list-group-item">
         <b>Section: </b>{{section.title}} <br />
         <b>Seats: </b>{{section.seats}}
-        <button class="float-right btn btn-success" (click)="enroll(this.currentUser._id,section._id)">Enroll</button>
+        <button class="float-right btn btn-success" (click)="enroll(this.currentUser._id,section._id, section.seats)">Enroll</button>
       </li>
     </ul>
   </div>
