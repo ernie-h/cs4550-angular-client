@@ -17,6 +17,37 @@ export class SectionServiceClient {
     })
       .then(response => response.status)
 
+  unenroll = (userId, sectionId) =>
+    fetch(STUDENT_SECTION_ID_API_URL.replace('SID', userId).replace('KID', sectionId), {
+      method: 'DELETE',
+      credentials: 'include'
+    })
+      .then(response => response.status)
+
+  updateSectionEnroll = (sectionId) =>
+    fetch(SECTION_ID_API_URL.replace('KID', sectionId), {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(response => response.status)
+
+  updateSectionUnenroll = (sectionId) =>
+    fetch(SECTION_ID_API_URL.replace('KID', sectionId), {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(response => console.log(response.json()))
+
+  findSectionsForStudent = (userId) =>
+    fetch(STUDENT_SECTION_API_URL.replace('SID', userId), {
+      credentials: 'include'
+    })
+      .then(response => response.json());
+
   findAllSections = () =>
     fetch('http://localhost:3000/api/section')
       .then(response => response.json())
@@ -42,20 +73,6 @@ export class SectionServiceClient {
     })
       .then(response => response.status)
 
-  updateSectionEnroll = (sectionId) =>
-    fetch(SECTION_ID_API_URL.replace('KID', sectionId), {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-      .then(response => response.status)
-
-  findSectionsForStudent = (userId) =>
-    fetch(STUDENT_SECTION_API_URL.replace('SID', userId), {
-      credentials: 'include'
-    })
-      .then(response => response.json());
 
 
 }

@@ -77,8 +77,12 @@
     <div class='col-5'>
       <h1 class="mb-3">Your Sections</h1>
       <li *ngFor="let enrollment of enrollments" class="list-group-item">
-        <b>Section: </b>{{enrollment.section.title}} <br />
-        <b>Seats: </b>{{enrollment.section.seats}}
+        <b>Section:</b> {{enrollment.section.title}} <br />
+        <b>Seats:</b> {{enrollment.section.seats}}
+        <button class="float-right btn btn-danger"
+        (click)="unenroll(this.currentUser._id, enrollment.section._id, enrollment.section.seats)">
+        Un-enroll</button>
+
       </li>
     </div>
   </div>

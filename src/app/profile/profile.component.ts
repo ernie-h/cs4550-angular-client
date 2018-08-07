@@ -18,7 +18,7 @@ export class ProfileComponent implements OnDestroy {
   };
   enrollments = [];
   role = '';
-  isAdmin= false;
+  isAdmin = false;
   subscription;
 
   constructor(
@@ -48,9 +48,34 @@ export class ProfileComponent implements OnDestroy {
   }
 
   logout() {
-   this.userService.logout()
-     .then(() =>
-     this.router.navigate(['login']));
+    this.userService.logout()
+      .then(() =>
+        this.router.navigate(['login']));
 
- }
+  }
+
+  unenroll = (userId, sectionId, seats) => {
+    console.log(seats)
+    this.sectionService.updateSectionUnenroll(sectionId)
+      .then(() => {
+        if (userId) {
+          this.sectionService.unenroll(userId, sectionId)
+            .then((status) => {
+              if (status === 200) {
+                alert('You have been successfully un-enrolled in the course.')
+              }
+              else {
+                alert('Unable to un-enroll. Contact administrator.')
+              }
+            })
+            .then(() => this.sectionService
+              .findSectionsForStudent(this.currentUser._id)
+              .then(enrollments => this.enrollments = enrollments))
+
+        }
+        else {
+          alert('Please login before un-enrolling in a section.')
+        }
+      })
+  }
 }
