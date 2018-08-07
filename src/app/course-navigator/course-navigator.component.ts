@@ -10,9 +10,14 @@ export class CourseNavigatorComponent implements OnInit {
   courses = [];
   selectedCourse = {};
   selectedModule = {};
-  selectedLesson = {};
-  selectedTopic = {};
+  selectedLesson = {
+
+  };
+  selectedTopic = {
+
+  };
   selectedWidget = {};
+  otherCourseSelected = false;
   constructor(private courseService: CourseServiceClient) { }
 
   ngOnInit() {
@@ -21,10 +26,15 @@ export class CourseNavigatorComponent implements OnInit {
   }
 
   selectCourse(course) {
+    this.selectedModule=  {};
+    this.selectedLesson = {title: ''};
+    this.selectedTopic = {title: ''};
     this.selectedCourse = course;
   }
 
   selectModule(module) {
+    this.selectedLesson = {};
+    this.selectedTopic = {};
     this.selectedModule = module;
   }
 

@@ -8,33 +8,39 @@ import { UserServiceClient } from '../services/user.service.client';
   styleUrls: ['./enrollment.component.css']
 })
 export class EnrollmentComponent implements OnInit {
-
   sections = []
   currentUser = {};
-
 
   constructor(private sectionService: SectionServiceClient,
     private userService: UserServiceClient) { }
 
-  enroll = (userId, sectionId) => {
-    if (userId) {
-      this.sectionService.enroll(userId, sectionId)
-        .then((status) => {
-          if (status === 200) {
-            alert('You have been successfully enrolled!')
+  enroll = (userId, sectionId, seats) => {
+    if (seats !== 0) {
+      this.sectionService.updateSectionEnroll(sectionId)
+        .then(() => {
+          if (userId) {
+            this.sectionService.enroll(userId, sectionId)
+              .then((status) => {
+                if (status === 200) {
+                  alert('You have been successfully enrolled!')
+                }
+                else {
+                  alert('Unable to enroll. Contact administrator.')
+                }
+              })
+              .then(() => this.sectionService.findAllSections()
+                .then((sections) => this.sections = sections));
+
           }
           else {
-            alert('Unable to enroll. Contact administrator.')
+            alert('Please login before enrolling in a section.')
           }
         })
-        .then(() => this.sectionService.updateSectionEnroll(sectionId))
-        .then(() => this.sectionService.findAllSections()
-          .then((sections) => this.sections = sections));
-
     }
     else {
-      alert('Please login before enrolling in a section.')
+      alert('No more seats available. Please contact an Administrator.')
     }
+
   }
 
   ngOnInit() {
