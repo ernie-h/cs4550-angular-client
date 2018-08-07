@@ -15,7 +15,7 @@ export class EnrollmentComponent implements OnInit {
     private userService: UserServiceClient) { }
 
   enroll = (userId, sectionId, seats) => {
-    if (seats !== 0) {
+    if (seats > 0) {
       this.sectionService.updateSectionEnroll(sectionId)
         .then(() => {
           if (userId) {
@@ -40,8 +40,8 @@ export class EnrollmentComponent implements OnInit {
     else {
       alert('No more seats available. Please contact an Administrator.')
     }
-
   }
+
 
   ngOnInit() {
     this.sectionService
