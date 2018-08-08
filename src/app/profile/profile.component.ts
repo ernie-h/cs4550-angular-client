@@ -35,11 +35,9 @@ export class ProfileComponent implements OnDestroy {
         .then((user) => {
           this.currentUser = user;
           this.role = user.role;
-
         })
         .then(() => this.sectionService.findSectionsForStudent(this.currentUser._id)
           .then(enrollments => this.enrollments = enrollments))
-
     });
   }
 

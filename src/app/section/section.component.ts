@@ -8,7 +8,6 @@ import { SectionServiceClient } from "../services/section.service.client";
   styleUrls: ['./section.component.css']
 })
 export class SectionComponent implements OnInit {
-
   courses = []
   sections = []
   selectedCourse = {

@@ -1,12 +1,9 @@
 <div class="container-fluid">
   <div class="row">
-    <!-- <div class='col-1'>
-      &nbsp;
-    </div> -->
-    <div class='col-6 ml-5'>
+    <div class='col-6 ml-5 '>
       <h1>Profile</h1>
       <div *ngIf="role=='ADMIN'" class="float-right">
-        <button class='btn btn-primary' routerLink="/sections">Admin page</button>
+        <button class='btn btn-primary' routerLink="/sections">Admin Editor</button>
       </div>
       <div class="form-group row">
         <label for="emailFld" class="col-lg-2 col-form-label">Email</label>
@@ -77,11 +74,12 @@
     <div class='col-5'>
       <h1 class="mb-3">Your Sections</h1>
       <li *ngFor="let enrollment of enrollments" class="list-group-item">
-        <b>Section:</b> {{enrollment.section.title}} <br />
-        <b>Seats:</b> {{enrollment.section.seats}}
-        <button class="float-right btn btn-danger"
+        <button class="float-right btn btn-danger "
         (click)="unenroll(this.currentUser._id, enrollment.section._id, enrollment.section.seats)">
         Un-enroll</button>
+        <b>Section:</b> {{enrollment.section.title}}<br/>
+
+        <b>Seats:</b> {{enrollment.section.seats}}
 
       </li>
     </div>
