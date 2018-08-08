@@ -17,15 +17,14 @@ export class ProfileComponent implements OnDestroy {
     _id: 0,
     email: '',
     role: '',
+    username: '',
+    password: '',
+    password2: '',
+    firstName: '',
+    lastName: '',
+    phone: '',
+    dateOfBirth: '',
   };
-  username: '';
-  password: '';
-  password2: '';
-  firstName: '';
-  lastName: '';
-  email: '';
-  phone: '';
-  dateOfBirth: '';
   role = '';
   enrollments = [];
   isAdmin = false;

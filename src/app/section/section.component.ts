@@ -11,7 +11,8 @@ export class SectionComponent implements OnInit {
   courses = []
   sections = []
   selectedCourse = {
-    id: 0
+    id: 0,
+    title: ''
   }
   section = {
     title: '',
