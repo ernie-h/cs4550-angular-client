@@ -12,7 +12,7 @@
             <li class="list-group-item bg-dark text-light">
               Courses
             </li>
-            <li class="list-group-item webdev" *ngFor="let course of courses" (click)="selectCourse(course)" [ngClass]="{'active': course === selectedCourse}">
+            <li class="list-group-item webdev" *ngIf='courses !== []' *ngFor="let course of courses" (click)="selectCourse(course)" [ngClass]="{'active': course === selectedCourse}">
               {{course.title}}
             </li>
           </ul>
@@ -22,7 +22,7 @@
             <li class="list-group-item bg-dark text-light">
               Modules
             </li>
-            <li class="list-group-item webdev" *ngFor="let module of selectedCourse.modules" (click)="selectModule(module)" [ngClass]="{'active': module === selectedModule}">
+            <li class="list-group-item webdev" *ngIf='selectedCourse.modules !== []' *ngFor="let module of selectedCourse.modules" (click)="selectModule(module)" [ngClass]="{'active': module === selectedModule}">
               {{module.title}}
             </li>
           </ul>
@@ -32,7 +32,7 @@
             <li class="list-group-item bg-dark text-light">
               Lessons
             </li>
-            <li class="list-group-item webdev" *ngFor="let lesson of selectedModule.lessons" (click)="selectLesson(lesson)" [ngClass]="{'active': lesson === selectedLesson}">
+            <li class="list-group-item webdev" *ngIf='selectedModule.lessons !== []' *ngFor="let lesson of selectedModule.lessons" (click)="selectLesson(lesson)" [ngClass]="{'active': lesson === selectedLesson}">
               {{lesson.title}}
             </li>
           </ul>
@@ -42,7 +42,7 @@
             <li class="list-group-item bg-dark text-light">
               Topics
             </li>
-            <li class="list-group-item webdev" *ngFor="let topic of selectedLesson.topics" (click)="selectTopic(topic)" [ngClass]="{'active': topic === selectedTopic}">
+            <li class="list-group-item webdev" *ngIf='selectedLesson.topics !== []' *ngFor="let topic of selectedLesson.topics" (click)="selectTopic(topic)" [ngClass]="{'active': topic === selectedTopic}">
               {{topic.title}}
             </li>
           </ul>
@@ -62,7 +62,9 @@
         <li class="list-group-item bg-dark text-light">
           Widgets
         </li>
-        <div class="list-group-item webdev" *ngFor="let widget of selectedTopic.widgets" (click)="selectWidget(widget)" [ngClass]="{'active': widget === selectedWidget}">
+        <div class="list-group-item webdev" *ngIf='selectedTopic.widgets !== []'
+        *ngFor="let widget of selectedTopic.widgets" (click)="selectWidget(widget)"
+        [ngClass]="{'active': widget === selectedWidget}">
           <li class="list-group-item webdev" *ngIf="widget.className == 'HEADING'">
             <h1 *ngIf="widget.size == 1">
               {{widget.text}}
