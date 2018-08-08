@@ -38,22 +38,22 @@ export class CourseNavigatorComponent implements OnInit {
   }
 
   selectCourse(course) {
-    this.selectedModule = {};
-    this.selectedLesson = {};
-    this.selectedTopic = {};
+    this.selectedModule = {lessons:[]};
+    this.selectedLesson = {topics:[]};
+    this.selectedTopic = {widgets: []};
     this.selectedWidget = {};
     this.selectedCourse = course;
   }
 
   selectModule(module) {
-    this.selectedLesson = {};
-    this.selectedTopic = {};
+    this.selectedLesson = {topics: []};
+    this.selectedTopic = {widgets:[]};
     this.selectedWidget = {};
     this.selectedModule = module;
   }
 
   selectLesson(lesson) {
-    this.selectedTopic = {};
+    this.selectedTopic = {widgets:[]};
     this.selectedWidget = {};
     this.selectedLesson = lesson;
   }
