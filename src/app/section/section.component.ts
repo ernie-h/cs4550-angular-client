@@ -13,7 +13,10 @@ export class SectionComponent implements OnInit {
   selectedCourse = {
     id: 0
   }
-  section = {}
+  section = {
+    title: '',
+    seats: -1
+  }
 
   constructor(private sectionService: SectionServiceClient,
     private courseService: CourseServiceClient) { }

@@ -8,7 +8,15 @@ import { UserServiceClient } from '../services/user.service.client';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  username: '';
+  password: '';
+  password2: '';
+  firstName: '';
+  lastName: '';
+  email: '';
+  phone: '';
+  dateOfBirth: '';
+  role: '';
   constructor(private router: Router,
     private userService: UserServiceClient) { }
 

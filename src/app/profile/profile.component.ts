@@ -18,8 +18,16 @@ export class ProfileComponent implements OnDestroy {
     email: '',
     role: '',
   };
-  enrollments = [];
+  username: '';
+  password: '';
+  password2: '';
+  firstName: '';
+  lastName: '';
+  email: '';
+  phone: '';
+  dateOfBirth: '';
   role = '';
+  enrollments = [];
   isAdmin = false;
   subscription;
 
