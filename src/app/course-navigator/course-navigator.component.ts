@@ -10,10 +10,18 @@ import { UserServiceClient } from '../services/user.service.client';
 export class CourseNavigatorComponent implements OnInit {
   currentUser = { _id: 0 };
   courses = [];
-  selectedCourse = {};
-  selectedModule = {};
-  selectedLesson = {};
-  selectedTopic = {};
+  selectedCourse = {
+    modules: []
+  };
+  selectedModule = {
+    lessons: []
+  };
+  selectedLesson = {
+    topics: []
+  };
+  selectedTopic = {
+    widgets: []
+  };
   selectedWidget = {};
   otherCourseSelected = false;
   constructor(
