@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
-const COURSE_API_URL = "http://localhost:3000/api/course";
-const COURSE_ID_SECTION_API_URL = "http://localhost:3000/api/course/CID/section";
-const SECTION_ID_API_URL = "http://localhost:3000/api/section/KID";
-const STUDENT_SECTION_ID_API_URL = "http://localhost:3000/api/student/SID/section/KID";
-const STUDENT_SECTION_API_URL = "http://localhost:3000/api/student/SID/section";
+const COURSE_API_URL = "https://quiet-reaches-56382.herokuapp.com/api/course";
+const COURSE_ID_SECTION_API_URL = "https://quiet-reaches-56382.herokuapp.com/api/course/CID/section";
+const SECTION_ID_API_URL = "https://quiet-reaches-56382.herokuapp.com/api/section/KID";
+const STUDENT_SECTION_ID_API_URL = "https://quiet-reaches-56382.herokuapp.com/api/student/SID/section/KID";
+const STUDENT_SECTION_API_URL = "https://quiet-reaches-56382.herokuapp.com/api/student/SID/section";
 
 
 @Injectable()
