@@ -5,8 +5,8 @@
   <div class="col-3">
     <h2 class='display-5'>Section Editor
       <div class='float-right'>
-        <button class='btn btn-warning'
-        routerLink="/profile">Back</button>
+        <button class='btn-sm btn-warning'
+        routerLink="/profile">Back to Profile</button>
       </div>
     </h2>
     <ul class="list-group">
@@ -14,7 +14,7 @@
         Courses
       </li>
       <li (click)="selectCourse(course)" *ngFor="let course of courses" [ngClass]="{'active': course.id == selectedCourse.id}" class="list-group-item">
-        {{course.title}} ({{course.id}})
+        {{course.title}}
       </li>
     </ul>
   </div>

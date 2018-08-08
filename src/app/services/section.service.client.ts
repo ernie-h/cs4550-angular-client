@@ -34,7 +34,7 @@ export class SectionServiceClient {
       .then(response => response.status)
 
   updateSectionUnenroll = (sectionId) =>
-    fetch(SECTION_ID_API_URL.replace('KID', sectionId), {
+    fetch(SECTION_ID_API_URL.replace('KID', sectionId)+'/unenroll', {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
