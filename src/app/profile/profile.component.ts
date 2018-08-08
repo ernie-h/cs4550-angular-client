@@ -14,7 +14,9 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnDestroy {
   userId: String;
   currentUser = {
-    _id: 0
+    _id: 0,
+    email: '',
+    role: '',
   };
   enrollments = [];
   role = '';
@@ -44,12 +46,34 @@ export class ProfileComponent implements OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+  updateUser(currentUserId, username, password, firstName, lastName, phone, dateOfBirth) {
+    if (username && password && firstName && lastName && phone && dateOfBirth !== null) {
+      let newUser = {
+        _id: currentUserId,
+        email: this.currentUser.email,
+        role: this.currentUser.role,
+        username: username,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+        phone: phone,
+        dateOfBirth: dateOfBirth,
+      }
+      this.userService.updateUser(newUser)
+      .then(() => alert('Succesfully updated user.'))
+          .then(() => this.sectionService.findSectionsForStudent(this.currentUser._id)
+            .then(enrollments => this.enrollments = enrollments))
+    }
+    else {
+      alert('Please edit each field. If you want to leave one field the same, type it out again.')
+    }
+
+  }
 
   logout() {
     this.userService.logout()
       .then(() =>
         this.router.navigate(['login']));
-
   }
 
   unenroll = (userId, sectionId, seats) => {
