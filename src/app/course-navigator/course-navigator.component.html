@@ -13,8 +13,7 @@
               Courses
             </li>
             <div *ngIf='courses !== []'>
-
-            <li class="list-group-item webdev" *ngIf='courses !== []' *ngFor="let course of courses" (click)="selectCourse(course)" [ngClass]="{'active': course === selectedCourse}">
+            <li class="list-group-item webdev" *ngFor="let course of courses" (click)="selectCourse(course)" [ngClass]="{'active': course === selectedCourse}">
               {{course.title}}
             </li>
           </div>
