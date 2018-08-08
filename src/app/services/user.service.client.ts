@@ -4,7 +4,6 @@ const REGISTER_URL = 'https://quiet-reaches-56382.herokuapp.com/api/register';
 const LOGOUT_URL = 'https://quiet-reaches-56382.herokuapp.com/api/logout';
 const PROFILE_URL = 'https://quiet-reaches-56382.herokuapp.com/api/profile';
 
-const COURSE_MODULE_API_URL = 'http://localhost:8080/api/course/CID/module'
 
 @Injectable()
 export class UserServiceClient {
