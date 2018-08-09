@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-const LOGIN_URL = 'https://quiet-reaches-56382.herokuapp.com/api/login';
-const REGISTER_URL = 'https://quiet-reaches-56382.herokuapp.com/api/register';
-const LOGOUT_URL = 'https://quiet-reaches-56382.herokuapp.com/api/logout';
-const PROFILE_URL = 'https://quiet-reaches-56382.herokuapp.com/api/profile';
+const LOGIN_URL = 'https://eh-node-server.herokuapp.com/api/login';
+const REGISTER_URL = 'https://eh-node-server.herokuapp.com/api/register';
+const LOGOUT_URL = 'https://eh-node-server.herokuapp.com/api/logout';
+const PROFILE_URL = 'https://eh-node-server.herokuapp.com/api/profile';
 
 
 @Injectable()
