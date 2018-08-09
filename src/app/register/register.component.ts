@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
 
   register = (username, password, password2, firstName, lastName, email, phone,
     dateOfBirth, role) => {
-      console.log(username);
     if (username && password && password2 && firstName && lastName &&
       email && phone && dateOfBirth && role !== undefined) {
       if (password === password2) {

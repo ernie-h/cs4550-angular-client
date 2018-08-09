@@ -92,7 +92,6 @@ export class ProfileComponent implements OnDestroy {
   }
 
   unenroll = (userId, sectionId, seats) => {
-    console.log(seats)
     this.sectionService.updateSectionUnenroll(sectionId)
       .then(() => {
         if (userId) {

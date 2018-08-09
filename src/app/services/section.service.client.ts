@@ -41,7 +41,6 @@ export class SectionServiceClient {
         'content-type': 'application/json'
       }
     })
-      .then(response => console.log(response.json()))
 
   findSectionsForStudent = (userId) =>
     fetch(STUDENT_SECTION_API_URL.replace('SID', userId), {
