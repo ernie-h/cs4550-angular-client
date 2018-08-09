@@ -16,7 +16,7 @@ export class SectionComponent implements OnInit {
   }
   section = {
     title: '',
-    seats: -1
+    seats: 24
   }
 
   constructor(private sectionService: SectionServiceClient,
