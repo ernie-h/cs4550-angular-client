@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const COURSE_API_URL = "https://eh-node-server.herokuapp.com/api/course";
 const COURSE_ID_SECTION_API_URL = "https://eh-node-server.herokuapp.com/api/course/CID/section";
 const SECTION_ID_API_URL = "https://eh-node-server.herokuapp.com/api/section/KID";
+const SECTION_URL = "https://eh-node-server.herokuapp.com/api/section";
 const STUDENT_SECTION_ID_API_URL = "https://eh-node-server.herokuapp.com/api/student/SID/section/KID";
 const STUDENT_SECTION_API_URL = "https://eh-node-server.herokuapp.com/api/student/SID/section";
 
@@ -49,7 +50,7 @@ export class SectionServiceClient {
       .then(response => response.json());
 
   findAllSections = () =>
-    fetch('http://localhost:3000/api/section')
+    fetch(SECTION_URL)
       .then(response => response.json())
 
   findSectionsForCourse = (courseId) =>
@@ -57,7 +58,7 @@ export class SectionServiceClient {
       .then(response => response.json())
 
   createSection = section =>
-    fetch('http://localhost:3000/api/section', {
+    fetch(SECTION_URL, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
