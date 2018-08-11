@@ -1,4 +1,31 @@
 <div class="container">
 <h1 class="display-4"> {{quiz.title}}</h1>
+<ul class="list-group">
+  <li *ngFor="let question of quiz.questions" class="list-group-item">
+    <h2 class="display-4">
+      {{question.title}}
+      <div [ngSwitch]="question.questionType" class="ml-2">
+        <div *ngSwitchCase="'TRUE_FALSE'">
+          <h3>True or False</h3>
+        </div>
+        <div *ngSwitchCase="'CHOICE'">
+          <h3>Multiple Choice</h3>
+        </div>
+
+        <div *ngSwitchCase="'ESSAY'">
+          <h3>Essay</h3>
+        </div>
+        <div *ngSwitchCase="'FILL_BLANKS'">
+          <h3>Fill in the blanks</h3>
+        </div>
+      </div>
+    </h2>
+    <span class="float-right">{{question.points}} points</span>
+    <p class="ml-2">
+      {{question.description}}
+    </p>
+  </li>
+
+</ul>
 
 </div>
