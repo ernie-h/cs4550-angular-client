@@ -15,6 +15,9 @@ import { SectionServiceClient } from './services/section.service.client';
 import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizServiceClient } from './services/quiz.service.client';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     SectionComponent,
     EnrollmentComponent,
     HomePageComponent,
+    QuizListComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { HomePageComponent } from './home-page/home-page.component';
   providers: [
     CourseServiceClient,
     UserServiceClient,
-    SectionServiceClient
+    SectionServiceClient,
+    QuizServiceClient,
   ],
   bootstrap: [AppComponent]
 })

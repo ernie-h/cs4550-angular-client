@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
-const COURSE_API_URL = "https://eh-node-server.herokuapp.com/api/course";
-const COURSE_ID_SECTION_API_URL = "https://eh-node-server.herokuapp.com/api/course/CID/section";
-const SECTION_ID_API_URL = "https://eh-node-server.herokuapp.com/api/section/KID";
-const SECTION_URL = "https://eh-node-server.herokuapp.com/api/section";
-const STUDENT_SECTION_ID_API_URL = "https://eh-node-server.herokuapp.com/api/student/SID/section/KID";
-const STUDENT_SECTION_API_URL = "https://eh-node-server.herokuapp.com/api/student/SID/section";
+const COURSE_API_URL = "http://localhost:8080/api/course";
+const COURSE_ID_SECTION_API_URL = "http://localhost:3000/api/course/CID/section";
+const SECTION_ID_API_URL = "http://localhost:3000/api/section/KID";
+const STUDENT_SECTION_ID_API_URL = "http://localhost:3000/api/student/SID/section/KID";
+const STUDENT_SECTION_API_URL = "http://localhost:3000/api/student/SID/section";
 
 
 @Injectable()
@@ -41,6 +40,7 @@ export class SectionServiceClient {
         'content-type': 'application/json'
       }
     })
+      .then(response => console.log(response.json()))
 
   findSectionsForStudent = (userId) =>
     fetch(STUDENT_SECTION_API_URL.replace('SID', userId), {
@@ -49,7 +49,7 @@ export class SectionServiceClient {
       .then(response => response.json());
 
   findAllSections = () =>
-    fetch(SECTION_URL)
+    fetch('http://localhost:3000/api/section')
       .then(response => response.json())
 
   findSectionsForCourse = (courseId) =>
@@ -57,7 +57,7 @@ export class SectionServiceClient {
       .then(response => response.json())
 
   createSection = section =>
-    fetch(SECTION_URL, {
+    fetch('http://localhost:3000/api/section', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

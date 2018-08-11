@@ -15,7 +15,7 @@ export class AppComponent {
     private userService: UserServiceClient, ) { }
 
   ngOnInit() {
-    this.router.navigate(['home'])
+    // this.router.navigate(['home'])
     this.userService.currentUser()
       .then((user) => {
         this.currentUser = user;

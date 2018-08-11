@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
-const LOGIN_URL = 'https://eh-node-server.herokuapp.com/api/login';
-const REGISTER_URL = 'https://eh-node-server.herokuapp.com/api/register';
-const LOGOUT_URL = 'https://eh-node-server.herokuapp.com/api/logout';
-const PROFILE_URL = 'https://eh-node-server.herokuapp.com/api/profile';
+const LOGIN_URL = 'http://localhost:3000/api/login';
+const REGISTER_URL = 'http://localhost:3000/api/register';
+const LOGOUT_URL = 'http://localhost:3000/api/logout';
+const PROFILE_URL = 'http://localhost:3000/api/profile';
 
+const COURSE_MODULE_API_URL = 'http://localhost:8080/api/course/CID/module'
 
 @Injectable()
 export class UserServiceClient {
