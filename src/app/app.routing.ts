@@ -6,6 +6,8 @@ import { SectionComponent } from './section/section.component';
 import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,5 +17,7 @@ const appRoutes: Routes = [
   { path: 'sections', component: SectionComponent },
   { path: 'enrollment', component: EnrollmentComponent },
   { path: 'home', component: HomePageComponent },
+  { path: 'quizzes', component: QuizListComponent },
+  { path: 'quiz/:quizId', component: QuizComponent },
 ];
 export const routing = RouterModule.forRoot(appRoutes);
