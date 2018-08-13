@@ -18,6 +18,10 @@ export class QuizComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private quizService : QuizServiceClient) { }
 
+    submitQuiz(quiz){
+      console.log(quiz);
+    }
+
   ngOnInit() {
     this.subscription = this.activatedRoute.params.subscribe((params) => {
       this.quizId = params['quizId'];
