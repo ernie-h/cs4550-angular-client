@@ -18,6 +18,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizServiceClient } from './services/quiz.service.client';
 import { QuizComponent } from './quiz/quiz.component';
+import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
+import { ChoiceQuestionComponent } from './choice-question/choice-question.component';
+import { FillBlanksQuestionComponent } from './fill-blanks-question/fill-blanks-question.component';
+import { EssayQuestionComponent } from './essay-question/essay-question.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { QuizComponent } from './quiz/quiz.component';
     HomePageComponent,
     QuizListComponent,
     QuizComponent,
+    TrueFalseQuestionComponent,
+    ChoiceQuestionComponent,
+    FillBlanksQuestionComponent,
+    EssayQuestionComponent,
   ],
   imports: [
     BrowserModule,
