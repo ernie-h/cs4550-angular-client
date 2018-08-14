@@ -1,14 +1,25 @@
-import { Injectable } from "@angular/core";
-const QUIZ_API_URL = 'http://localhost:3000/api/quiz'
-const QUIZ_ID_API_URL = 'http://localhost:3000/api/quiz/QID'
-
-
+import {
+  Injectable
+} from '@angular/core';
+const QUIZ_API_URL = 'http://localhost:3000/api/quiz';
+const QUIZ_ID_API_URL = 'http://localhost:3000/api/quiz/QID';
+const QUIZ_SUBMISSION_ID_API_URL = 'http://localhost:3000/api/quiz/QID/submission';
 @Injectable()
 export class QuizServiceClient {
   createQuiz() {
     return fetch(QUIZ_API_URL)
       .then(response => response.json());
   }
+  submitQuiz = (submission) =>
+    fetch(QUIZ_SUBMISSION_ID_API_URL.replace('QID', submission.quiz), {
+      method: 'post',
+      body: JSON.stringify(submission),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json',
+      }
+    })
+    .then(response => response.json())
 
   findAllQuiz() {
     return fetch(QUIZ_API_URL)

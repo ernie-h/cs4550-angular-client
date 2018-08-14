@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OnDestroy } from '@angular/core';
+import { Location } from '@angular/common';
 
 import { UserServiceClient } from '../services/user.service.client';
 import { SectionServiceClient } from '../services/section.service.client';
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnDestroy {
+export class ProfileComponent implements OnDestroy, OnInit {
   userId: String;
   currentUser = {
     _id: 0,
@@ -38,6 +39,8 @@ export class ProfileComponent implements OnDestroy {
   isAdmin = false;
   subscription;
 
+  refreshed = false;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -46,6 +49,7 @@ export class ProfileComponent implements OnDestroy {
   ) { }
 
   ngOnInit() {
+
     this.subscription = this.activatedRoute.params.subscribe((params) => {
       this.userId = params['userId'];
       this.userService.currentUser()
@@ -54,7 +58,7 @@ export class ProfileComponent implements OnDestroy {
           this.role = user.role;
         })
         .then(() => this.sectionService.findSectionsForStudent(this.currentUser._id)
-          .then(enrollments => this.enrollments = enrollments))
+          .then(enrollments => this.enrollments = enrollments));
     });
   }
 
@@ -63,7 +67,7 @@ export class ProfileComponent implements OnDestroy {
   }
   updateUser(currentUserId, username, password, firstName, lastName, phone, dateOfBirth) {
     if (username && password && firstName && lastName && phone && dateOfBirth !== null) {
-      let newUser = {
+      const newUser = {
         _id: currentUserId,
         email: this.currentUser.email,
         role: this.currentUser.role,
@@ -73,14 +77,13 @@ export class ProfileComponent implements OnDestroy {
         lastName: lastName,
         phone: phone,
         dateOfBirth: dateOfBirth,
-      }
+      };
       this.userService.updateUser(newUser)
       .then(() => alert('Succesfully updated user.'))
           .then(() => this.sectionService.findSectionsForStudent(this.currentUser._id)
-            .then(enrollments => this.enrollments = enrollments))
-    }
-    else {
-      alert('Please edit each field. If you want to leave one field the same, type it out again.')
+            .then(enrollments => this.enrollments = enrollments));
+    } else {
+      alert('Please edit each field. If you want to leave one field the same, type it out again.');
     }
 
   }
@@ -98,20 +101,18 @@ export class ProfileComponent implements OnDestroy {
           this.sectionService.unenroll(userId, sectionId)
             .then((status) => {
               if (status === 200) {
-                alert('You have been successfully un-enrolled in the course.')
-              }
-              else {
-                alert('Unable to un-enroll. Contact administrator.')
+                alert('You have been successfully un-enrolled in the course.');
+              } else {
+                alert('Unable to un-enroll. Contact administrator.');
               }
             })
             .then(() => this.sectionService
               .findSectionsForStudent(this.currentUser._id)
-              .then(enrollments => this.enrollments = enrollments))
+              .then(enrollments => this.enrollments = enrollments));
 
+        } else {
+          alert('Please login before un-enrolling in a section.');
         }
-        else {
-          alert('Please login before un-enrolling in a section.')
-        }
-      })
+      });
   }
 }

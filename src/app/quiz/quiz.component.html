@@ -16,12 +16,12 @@
         <b>Question:</b> {{question.description}}
       </p>
       <div [ngSwitch]="question.questionType" class="ml-2">
+        <app-essay-question *ngSwitchCase="'ESSAY'" [question]="question">
+        </app-essay-question>
         <app-true-false-question *ngSwitchCase="'TRUE_FALSE'" [question]="question">
         </app-true-false-question>
         <app-choice-question *ngSwitchCase="'CHOICE'" [question]="question">
         </app-choice-question>
-        <app-essay-question *ngSwitchCase="'ESSAY'" [question]="question">
-        </app-essay-question>
         <app-fill-blanks-question *ngSwitchCase="'FILL_BLANKS'" [question]="question">
         </app-fill-blanks-question>
       </div>

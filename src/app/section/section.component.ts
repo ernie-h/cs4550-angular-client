@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseServiceClient } from '../services/course.service.client';
-import { SectionServiceClient } from "../services/section.service.client";
+import { SectionServiceClient } from '../services/section.service.client';
 
 @Component({
   selector: 'app-section',
@@ -8,16 +8,16 @@ import { SectionServiceClient } from "../services/section.service.client";
   styleUrls: ['./section.component.css']
 })
 export class SectionComponent implements OnInit {
-  courses = []
-  sections = []
+  courses = [];
+  sections = [];
   selectedCourse = {
     id: 0,
     title: ''
-  }
+  };
   section = {
     title: '',
     seats: 24
-  }
+  };
 
   constructor(private sectionService: SectionServiceClient,
     private courseService: CourseServiceClient) { }
@@ -31,15 +31,14 @@ export class SectionComponent implements OnInit {
 
   addSection = section => {
     section.courseId = this.selectedCourse.id;
-    if(section.courseId && section.title && section.seats !== undefined){
+    if (section.courseId && section.title && section.seats !== undefined) {
       this.sectionService.createSection(section)
       .then(() => {
         return this.sectionService
           .findSectionsForCourse(this.selectedCourse.id);
       })
       .then(sections => this.sections = sections);
-    }
-    else{
+    } else {
       alert('Please fill in all fields')
     }
   }
@@ -49,12 +48,11 @@ export class SectionComponent implements OnInit {
       .then((status) => {
         if (status === 200) {
           return this.sectionService.findSectionsForCourse(this.selectedCourse.id)
-            .then((sections) => this.sections = sections)
+            .then((sections) => this.sections = sections);
+        } else {
+          alert('Unable to delete');
         }
-        else {
-          alert('Unable to delete')
-        }
-      })
+      });
   }
 
 

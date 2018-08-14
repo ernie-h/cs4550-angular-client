@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceClient } from './services/user.service.client';
 
@@ -7,7 +7,7 @@ import { UserServiceClient } from './services/user.service.client';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   currentUser = { _id: 0};
 
   constructor(
@@ -19,6 +19,6 @@ export class AppComponent {
     this.userService.currentUser()
       .then((user) => {
         this.currentUser = user;
-      })
+      });
   }
 }
