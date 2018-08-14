@@ -1,0 +1,23 @@
+<div class="row">
+  <div class='col'>
+    &nbsp;
+  </div>
+  <div class='col-5'>
+    <h1>Submissions for: {{quiz.title}}</h1>
+    <ul class="list-group">
+      <li  *ngFor="let submission of submissions"  class="list-group-item">
+        <div class="form mb-3">
+
+          <b>Submitted by: </b><p class="float-right">{{submission.student.username}}</p>
+        </div>
+        <div class="form">
+
+          <b>Submitted at: </b> <p class="float-right">{{submission.timestamp}} </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class='col'>
+    &nbsp;
+  </div>
+</div>

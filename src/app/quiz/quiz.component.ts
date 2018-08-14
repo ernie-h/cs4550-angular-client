@@ -82,7 +82,6 @@ export class QuizComponent implements OnInit {
           answers: this.answers,
           timestamp: Date.now()
         };
-        console.log(submission)
         this.quizService.submitQuiz(submission);
         this.answers = [];
         alert('Submission received!');
