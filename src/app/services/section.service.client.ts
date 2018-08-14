@@ -48,7 +48,7 @@ export class SectionServiceClient {
     fetch(STUDENT_SECTION_API_URL.replace('SID', userId), {
       credentials: 'include'
     })
-    .then(response => response.json());
+    .then(response => response.json())
 
   findAllSections = () =>
     fetch(SECTION_URL)
