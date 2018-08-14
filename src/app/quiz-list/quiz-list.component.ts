@@ -8,11 +8,11 @@ import { QuizServiceClient } from '../services/quiz.service.client';
 })
 export class QuizListComponent implements OnInit {
   quizzes = [];
-  constructor(private quizService : QuizServiceClient) { }
+  constructor(private quizService: QuizServiceClient) { }
 
   ngOnInit() {
     this.quizService.findAllQuiz()
-    .then(quizzes => this.quizzes = quizzes)
+    .then(quizzes => this.quizzes = quizzes);
   }
 
 }
