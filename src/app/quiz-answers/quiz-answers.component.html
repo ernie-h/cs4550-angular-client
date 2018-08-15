@@ -1,3 +1,44 @@
-<p>
-  quiz-answers works!
-</p>
+<div class="row">
+  <div class='col'>
+    &nbsp;
+  </div>
+  <div class='col-6'>
+    <h3 class="display-4">Answers for : <b></b>{{quiz.title}} </h3>
+    <ul class="list-group">
+      <li *ngFor="let submission of submissions" class="list-group-item">
+        <div class='row'>
+          <div class='col'>
+            <h3>Questions: </h3>
+          </div>
+          <div class='col'>
+            <h3>Answers by:
+              <em>{{submission.student.username}}</em>
+            </h3>
+          </div>
+        </div>
+        <div *ngFor="let question of submission.quiz.questions">
+          <div *ngFor="let answer of submission.answers">
+            <div *ngIf="question._id === answer.question ">
+              <div class='row bg-light rounded mb-3 pt-2 pb-2'>
+                <div class='col-6'>
+                  {{question.title}}
+                </div>
+                <div class='col-6 text-warning'>
+                  {{answer.essayAnswer}} {{answer.multipleChoiceAnswer}} {{answer.trueFalseAnswer}}
+                  <div *ngIf="answer.fillBlanksAnswers">
+                    <div *ngFor="let blankAnswer of fillBlanksString(answer.fillBlanksAnswers)">
+                      {{blankAnswer}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class='col'>
+    &nbsp;
+  </div>
+</div>

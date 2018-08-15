@@ -55,22 +55,22 @@ export class QuizComponent implements OnInit {
       if (question.essayAnswer) {
         this.answers.push({
           essayAnswer: question.essayAnswer,
-          questionId: question._id
+          question: question._id
         });
       } else if (question.multipleChoiceAnswer) {
         this.answers.push({
           multipleChoiceAnswer: question.multipleChoiceAnswer,
-          questionId: question._id
+          question: question._id
         });
       } else if (question.trueFalseAnswer) {
         this.answers.push({
           trueFalseAnswer: question.trueFalseAnswer,
-          questionId: question._id
+          question: question._id
         });
       } else if (!isEmpty(question.fillBlanksAnswers)) {
         this.answers.push({
-          fillBlanksAnswers: question.fillBlanksAnswers,
-          questionId: question._id
+          fillBlanksAnswers: JSON.stringify(question.fillBlanksAnswers),
+          question: question._id
         });
       }
     });
