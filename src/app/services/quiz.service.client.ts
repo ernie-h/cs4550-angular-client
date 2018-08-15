@@ -1,10 +1,14 @@
 import {
   Injectable
 } from '@angular/core';
-const QUIZ_API_URL = 'http://localhost:3000/api/quiz';
-const QUIZ_ID_API_URL = 'http://localhost:3000/api/quiz/QID';
-const QUIZ_SUBMISSION_API_URL = 'http://localhost:3000/api/quiz/QID/submission';
-const QUIZ_SUBMISSION_ID_API_URL = 'http://localhost:3000/api/quiz/QID/submission/SID';
+// const QUIZ_API_URL = 'http://localhost:3000/api/quiz';
+// const QUIZ_ID_API_URL = 'http://localhost:3000/api/quiz/QID';
+// const QUIZ_SUBMISSION_API_URL = 'http://localhost:3000/api/quiz/QID/submission';
+// const QUIZ_SUBMISSION_ID_API_URL = 'http://localhost:3000/api/quiz/QID/submission/SID';
+const QUIZ_API_URL = 'https://eh-node-server.herokuapp.com/api/quiz';
+const QUIZ_ID_API_URL = 'https://eh-node-server.herokuapp.com/api/quiz/QID';
+const QUIZ_SUBMISSION_API_URL = 'https://eh-node-server.herokuapp.com/api/quiz/QID/submission';
+const QUIZ_SUBMISSION_ID_API_URL = 'https://eh-node-server.herokuapp.com/api/quiz/QID/submission/SID';
 
 @Injectable()
 export class QuizServiceClient {

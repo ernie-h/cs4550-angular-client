@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-const COURSE_API_URL = 'http://localhost:8080/api/course';
-const COURSE_ID_API_URL = 'http://localhost:8080/api/course/CID';
-const COURSE_MODULE_API_URL = 'http://localhost:8080/api/course/CID/module';
+// const COURSE_API_URL = 'http://localhost:8080/api/course';
+// const COURSE_ID_API_URL = 'http://localhost:8080/api/course/CID';
+// const COURSE_MODULE_API_URL = 'http://localhost:8080/api/course/CID/module';
+
+const COURSE_API_URL = 'https://eh-cs4550-java-server.herokuapp.com/api/course';
+const COURSE_ID_API_URL = 'https://eh-cs4550-java-server.herokuapp.com/api/course/CID';
+const COURSE_MODULE_API_URL = 'https://eh-cs4550-java-server.herokuapp.com/api/course/CID/module';
 
 @Injectable()
 export class CourseServiceClient {

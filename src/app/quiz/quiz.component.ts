@@ -20,7 +20,7 @@ import {
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-  quiz = {};
+  quiz: any;
   quizId = 0;
   answers = [];
   subscription;

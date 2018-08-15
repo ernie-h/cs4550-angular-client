@@ -21,8 +21,8 @@ import {
 export class QuizAnswersComponent implements OnInit {
   quizId = -1;
   submissionId = -1;
-  quiz = {};
-  submission = {};
+  quiz: any;
+  submission: any;
   subscription;
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,

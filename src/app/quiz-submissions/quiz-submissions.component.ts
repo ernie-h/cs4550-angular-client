@@ -20,7 +20,7 @@ import {
 })
 export class QuizSubmissionsComponent implements OnInit {
   quizId = -1;
-  quiz = {};
+  quiz: any;
   submissions = [];
   student = '';
   subscription;
