@@ -3,19 +3,30 @@
     &nbsp;
   </div>
   <div class='col-5'>
-    <h1>Submissions for: <em>{{quiz.title}}</em></h1>
+    <h1>Submissions for:
+      <em>{{quiz.title}}</em>
+    </h1>
+    <select [(ngModel)]="student" class="form-control text-dark">
+      <option value="" disabled selected>Select Student</option>
+      <option *ngFor="let submission of submissions" value="{{submission.student.username}}">{{submission.student.username}}</option>
+    </select>
+
     <ul class="list-group">
-      <li  *ngFor="let submission of submissions"  class="list-group-item">
-        <button class="btn-sm btn-success float-right mt-4 ml-4" routerLink="/quiz/{{submission.quiz._id}}/submission/{{submission._id}}">Answers</button>
-        <div class="mb-3">
-          <b>Submitted by: </b><p class="float-right">{{submission.student.username}}</p>
+      <div *ngFor="let submission of submissions">
+        <div *ngIf="submission.student.username === student">
+          <li class="list-group-item">
+            <button class="btn-sm btn-success float-right mt-4 ml-4" routerLink="/quiz/{{submission.quiz._id}}/submission/{{submission._id}}">Answers</button>
+            <div class="mb-3">
+              <b>Submitted by: </b>
+              <p class="float-right">{{submission.student.username}}</p>
+            </div>
+            <div class="mb-2">
+              <b>Submitted at: </b>
+              <p class="float-right">{{submission.timestamp}} </p>
+            </div>
+          </li>
         </div>
-        <div class="mb-2">
-          <b>Submitted at: </b> <p class="float-right">{{submission.timestamp}} </p>
-        </div>
-
-
-      </li>
+      </div>
     </ul>
   </div>
   <div class='col'>

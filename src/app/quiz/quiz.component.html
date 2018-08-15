@@ -1,15 +1,13 @@
-<div class="container">
+<div class="container mb-5">
   <h1 class="display-4"> {{quiz.title}}
-    <button class="btn btn-primary float-right mt-3" (click)="submitQuiz(quiz)">
-      Submit Quiz
-    </button>
+
   </h1>
   <ul class="list-group">
     <li *ngFor="let question of quiz.questions" class="list-group-item">
       <div>
         <h2 class="display-4">
-      {{question.title}}
-    </h2>
+          {{question.title}}
+        </h2>
         <p class="float-right">{{question.points}} points</p>
       </div>
       <p class="ml-2">
@@ -27,4 +25,11 @@
       </div>
     </li>
   </ul>
+  <div class='d-flex justify-content-center form-inline'>
+    <button class='btn btn-danger mt-3 mr-5 mb-5' routerLink="/quizzes">Cancel</button>
+
+    <button class="btn btn-primary mt-3  ml-5 mb-5" (click)="submitQuiz(quiz)">
+      Submit Quiz
+    </button>
+  </div>
 </div>

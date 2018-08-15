@@ -20,8 +20,9 @@ import {
 })
 export class QuizAnswersComponent implements OnInit {
   quizId = -1;
+  submissionId = -1;
   quiz = {};
-  submissions = [];
+  submission = {};
   subscription;
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -31,10 +32,11 @@ export class QuizAnswersComponent implements OnInit {
   ngOnInit() {
     this.subscription = this.activatedRoute.params.subscribe((params) => {
       this.quizId = params['quizId'];
+      this.submissionId = params['submissionId'];
       this.quizService.findQuizById(this.quizId)
         .then(quiz => this.quiz = quiz);
-      this.quizService.findAllSubmissionsForQuiz(this.quizId)
-        .then(submissions => this.submissions = submissions);
+      this.quizService.findSubmissionById(this.quizId, this.submissionId)
+        .then(submission => this.submission = submission);
     });
   }
 

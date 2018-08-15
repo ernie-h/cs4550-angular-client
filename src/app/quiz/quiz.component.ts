@@ -37,17 +37,17 @@ export class QuizComponent implements OnInit {
     this.subscription = this.activatedRoute.params.subscribe((params) => {
       this.quizId = params['quizId'];
       this.quizService.findQuizById(this.quizId)
-      .then((quiz) => this.quiz = quiz);
+        .then((quiz) => this.quiz = quiz);
     });
     this.userService.currentUser()
-    .then((user) => {
-      if (user._id) {
-        this.currentUserId = user._id;
-      } else {
-        alert('You are not logged in. Please log in before taking a quiz');
-        this.router.navigate(['login']);
-      }
-    });
+      .then((user) => {
+        if (user._id) {
+          this.currentUserId = user._id;
+        } else {
+          alert('You are not logged in. Please log in before taking a quiz');
+          this.router.navigate(['login']);
+        }
+      });
   }
 
   submitQuiz(quiz) {
@@ -62,14 +62,14 @@ export class QuizComponent implements OnInit {
           multipleChoiceAnswer: question.multipleChoiceAnswer,
           question: question._id
         });
-      } else if (question.trueFalseAnswer) {
-        this.answers.push({
-          trueFalseAnswer: question.trueFalseAnswer,
-          question: question._id
-        });
       } else if (!isEmpty(question.fillBlanksAnswers)) {
         this.answers.push({
           fillBlanksAnswers: JSON.stringify(question.fillBlanksAnswers),
+          question: question._id
+        });
+      } else if (question.trueFalseAnswer === 'true' || 'false') {
+        this.answers.push({
+          trueFalseAnswer: question.trueFalseAnswer,
           question: question._id
         });
       }

@@ -7,7 +7,7 @@
     <ul class="list-group">
       <li *ngFor="let quiz of quizzes" class="list-group-item">
         {{quiz.title}}
-        <button class='btn-sm btn-success float-right' routerLink="/quiz/{{quiz._id}}/submissions">Submissions</button>
+        <button *ngIf="currentUserRole === 'ADMIN'" class='btn-sm btn-success float-right' routerLink="/quiz/{{quiz._id}}/submissions">Submissions</button>
         <a class="float-right mr-4 mt-1" href="/quiz/{{quiz._id}}">Take</a>
       </li>
     </ul>
