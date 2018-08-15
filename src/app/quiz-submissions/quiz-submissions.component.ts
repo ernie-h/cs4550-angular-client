@@ -22,6 +22,7 @@ export class QuizSubmissionsComponent implements OnInit {
   quizId = -1;
   quiz = {};
   submissions = [];
+  student = '';
   subscription;
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -36,5 +37,10 @@ export class QuizSubmissionsComponent implements OnInit {
         this.quizService.findQuizById(this.quizId)
         .then(quiz => this.quiz = quiz);
       });
+    }
+
+    checkStudentName(studentName, studentOption){
+      console.log(studentName)
+      console.log(studentOption)
     }
   }

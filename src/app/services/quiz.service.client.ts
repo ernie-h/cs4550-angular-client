@@ -3,7 +3,9 @@ import {
 } from '@angular/core';
 const QUIZ_API_URL = 'http://localhost:3000/api/quiz';
 const QUIZ_ID_API_URL = 'http://localhost:3000/api/quiz/QID';
-const QUIZ_SUBMISSION_ID_API_URL = 'http://localhost:3000/api/quiz/QID/submission';
+const QUIZ_SUBMISSION_API_URL = 'http://localhost:3000/api/quiz/QID/submission';
+const QUIZ_SUBMISSION_ID_API_URL = 'http://localhost:3000/api/quiz/QID/submission/SID';
+
 @Injectable()
 export class QuizServiceClient {
   createQuiz() {
@@ -22,7 +24,7 @@ export class QuizServiceClient {
   }
 
   submitQuiz = (submission) =>
-    fetch(QUIZ_SUBMISSION_ID_API_URL.replace('QID', submission.quiz), {
+    fetch(QUIZ_SUBMISSION_API_URL.replace('QID', submission.quiz), {
       method: 'post',
       body: JSON.stringify(submission),
       credentials: 'include',
@@ -33,7 +35,11 @@ export class QuizServiceClient {
     .then(response => response.json())
 
   findAllSubmissionsForQuiz = (quizId) =>
-    fetch(QUIZ_SUBMISSION_ID_API_URL.replace('QID', quizId))
+    fetch(QUIZ_SUBMISSION_API_URL.replace('QID', quizId))
+    .then(response => response.json())
+
+  findSubmissionById = (quizId, submissionId) =>
+    fetch(QUIZ_SUBMISSION_ID_API_URL.replace('QID', quizId).replace('SID', submissionId))
     .then(response => response.json())
 
 }

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 const LOGIN_URL = 'http://localhost:3000/api/login';
 const REGISTER_URL = 'http://localhost:3000/api/register';
 const LOGOUT_URL = 'http://localhost:3000/api/logout';

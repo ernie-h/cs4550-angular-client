@@ -11,7 +11,7 @@ export class TrueFalseQuestionComponent implements OnInit {
 
   constructor() { }
 
-  selected = trueOrFalse => {
+  selected = (trueOrFalse) => {
     this.question.trueFalseAnswer = trueOrFalse;
   }
 
