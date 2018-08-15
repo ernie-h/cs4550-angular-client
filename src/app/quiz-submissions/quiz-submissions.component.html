@@ -3,17 +3,18 @@
     &nbsp;
   </div>
   <div class='col-5'>
-    <h1>Submissions for: {{quiz.title}}</h1>
+    <h1>Submissions for: <em>{{quiz.title}}</em></h1>
     <ul class="list-group">
       <li  *ngFor="let submission of submissions"  class="list-group-item">
-        <div class="form mb-3">
-
+        <button class="btn-sm btn-success float-right mt-4 ml-4" routerLink="/quiz/{{submission.quiz._id}}/submission/{{submission._id}}">Answers</button>
+        <div class="mb-3">
           <b>Submitted by: </b><p class="float-right">{{submission.student.username}}</p>
         </div>
-        <div class="form">
-
+        <div class="mb-2">
           <b>Submitted at: </b> <p class="float-right">{{submission.timestamp}} </p>
         </div>
+
+
       </li>
     </ul>
   </div>

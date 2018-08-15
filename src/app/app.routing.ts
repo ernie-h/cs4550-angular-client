@@ -9,6 +9,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.component';
+import { QuizAnswersComponent } from './quiz-answers/quiz-answers.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,5 +22,6 @@ const appRoutes: Routes = [
   { path: 'quizzes', component: QuizListComponent },
   { path: 'quiz/:quizId', component: QuizComponent },
   { path: 'quiz/:quizId/submissions', component: QuizSubmissionsComponent },
+  { path: 'quiz/:quizId/submission/:submissionId', component: QuizAnswersComponent },
 ];
 export const routing = RouterModule.forRoot(appRoutes);
